@@ -1,0 +1,169 @@
+\documentclass[12pt,letterpaper]{article}
+
+% Page and typography
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{newtxtext,newtxmath}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+
+% Figures, tables, links, and citations
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=apa,sorting=nyt]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{references.bib}
+
+% Lists and heading style
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+\setstretch{1.08}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\setlength{\headheight}{15pt}
+\setlist[enumerate]{leftmargin=2em,itemsep=0pt,topsep=0.2em}
+\captionsetup{
+  font=it,
+  justification=raggedright,
+  singlelinecheck=false,
+  skip=4pt
+}
+
+\titleformat{\section}
+  {\normalfont\bfseries\large}
+  {}{0pt}{\underline}
+\titleformat{\subsection}
+  {\normalfont\bfseries\normalsize}
+  {}{0pt}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.3em}
+\titlespacing*{\subsection}{0pt}{0.8em}{0.2em}
+
+% Page number and border
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\AddToHook{shipout/background}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \draw[line width=0.4pt]
+      ([xshift=0.5in,yshift=-0.5in]current page.north west)
+      rectangle
+      ([xshift=-0.5in,yshift=0.5in]current page.south east);
+  \end{tikzpicture}%
+}
+
+\newcommand{\essaytitle}{Your Essay Title}
+\newcommand{\studentname}{Your Name}
+\newcommand{\studentid}{Student ID}
+\newcommand{\coursename}{Course Name}
+\newcommand{\submissiondate}{20 November 2026}
+\newcommand{\wordcount}{0000}
+
+\begin{document}
+
+% The sample begins with a contents table rather than a separate title page.
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.56\textwidth}
+                >{\centering\arraybackslash}p{0.22\textwidth}}
+\toprule
+\textbf{Content} & \textbf{Pages} \\
+\midrule
+Abstract & \pageref{sec:abstract} \\
+Introduction & \pageref{sec:introduction} \\
+Methodology \& Questions & \pageref{sec:methodology} \\
+Results \& Discussion & \pageref{sec:results}--\pageref{sec:limitations} \\
+Limitations & \pageref{sec:limitations} \\
+Conclusion & \pageref{sec:conclusion} \\
+Reference list & \pageref{sec:references} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textit{\textbf{Words: \wordcount\ (excluding figure and table descriptions)}}
+
+\section{Abstract}
+\label{sec:abstract}
+Write a concise summary of the essay. State the topic, the problem or
+research focus, the approach used, the main findings, and the conclusion.
+An abstract is usually one or two paragraphs.
+
+\section{Introduction}
+\label{sec:introduction}
+Introduce the wider context and explain why the topic matters. Define
+important terms, establish the problem, and state the purpose and scope of
+the essay. Use author--date citations, for example \parencite{example2024}.
+
+\begin{figure}[htbp]
+  \centering
+  % Replace this placeholder with a file in the project folder.
+  % \includegraphics[width=0.82\textwidth]{figures/your-figure}
+  \fbox{\parbox[c][1.6in][c]{0.78\textwidth}{\centering Insert figure here}}
+  \caption{Descriptive figure title (Author, Year).}
+  \label{fig:introduction-example}
+\end{figure}
+
+\section{Methodology}
+\label{sec:methodology}
+Explain how information was collected and evaluated. Identify whether the
+essay uses a literature review, datasets, case studies, or another approach.
+State the limitations of the chosen method where appropriate.
+
+\subsection*{Questions}
+\begin{enumerate}
+  \item What is the first research question?
+  \item What is the second research question?
+  \item What is the third research question?
+  \item What is the fourth research question?
+\end{enumerate}
+
+\section{Results and Discussion}
+\label{sec:results}
+Present and interpret the evidence. Organise this section with short
+subsections that directly answer the research questions.
+
+\subsection{First Results Theme}
+Write the first results theme here. Explain what the evidence shows and
+connect it to the literature.
+
+\subsection{Second Results Theme}
+Write the second results theme here. Add figures or tables when they clarify
+the argument.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Example table title.}
+  \label{tab:example}
+  \begin{tabular}{ll}
+    \toprule
+    Category & Description \\
+    \midrule
+    Example 1 & Replace with your data \\
+    Example 2 & Replace with your data \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Limitations}
+\label{sec:limitations}
+Discuss the boundaries of the evidence, uncertainties in the method, data
+quality, and any conclusions that should not be generalised.
+
+\section{Conclusion}
+\label{sec:conclusion}
+Answer the research questions directly, summarise the main findings, and
+explain the significance of the essay. Do not introduce new evidence here.
+
+\clearpage
+\section*{References}
+\label{sec:references}
+\addcontentsline{toc}{section}{Reference list}
+\printbibliography[heading=none]
+
+\end{document}
