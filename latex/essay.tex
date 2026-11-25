@@ -11,6 +11,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{caption}
+\usepackage[section]{placeins}
 \usepackage[hidelinks]{hyperref}
 \usepackage[backend=biber,style=apa,sorting=nyt]{biblatex}
 \DeclareLanguageMapping{american}{american-apa}
@@ -60,6 +61,7 @@ Results \& Country Evaluation & \pageref{sec:results} \\
 Limitations & \pageref{sec:limitations} \\
 Conclusion & \pageref{sec:conclusion} \\
 Reference list & \pageref{sec:references} \\
+Appendix: Use of AI & \pageref{sec:appendix} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -101,6 +103,14 @@ The UN reported that marine protected areas covers merely 8.12 percent of the oc
 
 Here, Earth observation is therefore not a single map of ocean health. It produces data for time-series indicators which we can track and analyze. Coastal eutrophication can be estimated from nutrient, chlorophyll, and algae observations using satellite data. Floating debris can be modelled from satellite, drift, and field data. Habitat change can be measured with repeat imagery from satellites, while vessel positions can support IUU-fishing(Illegal, unreported, and unregulated) analysis \parencite{unep2024}.
 
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/bigdata_workflow.pdf}
+\caption{How Big Earth data sources feed indicators for SDG 14 targets
+(created with AI assistance, based on \cite{unep2024} and \cite{jpl2024}).}
+\label{fig:workflow}
+\end{figure}
+
 \subsection{United States}
 NOAA(National Oceanic and Atmospheric Administration) reports nearly 1,000 marine protected areas covering approximately 24 percent of United States waters \parencite{noaa2024}. Recent data shows that in year 2024, 363 stocks were assessed, of which 340 stocks were considered biologically sustainable. This means that 93.7 percent of assessed stocks were sustainable.\parencite{noaa2024fisheries}.
 
@@ -128,6 +138,16 @@ Japan's achievement is therefore moderate to strong in policy and science, but n
 
 India had notified 130 marine protected areas and identified 106 coastal and marine biodiversity areas by 2024 \parencite{india2024}. These networks support species and habitat conservation. However, coastal plastic
 pollution, eutrophication, high fishing pressure, and inconsistent monitoring indicate only moderate achievement.  Here India is moderate, with strong species and habitat programs but it needs better monitoring and reporting and also must use Earth observation to track progress.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/mpa_coverage.pdf}
+\caption{Reported marine protected-area coverage of national waters compared
+with the 2020 and 2030 targets. Hatched bars mark countries without a
+comparable published percentage. National figures as cited in the country
+sections; global coverage from \cite{un2024}.}
+\label{fig:mpa}
+\end{figure}
 
 \begin{table}[htbp]
 \centering
@@ -174,4 +194,12 @@ The evidence shows that designation alone is insufficient. Countries need effect
 \label{sec:references}
 \addcontentsline{toc}{section}{Reference list}
 \printbibliography[heading=none]
+
+\clearpage
+\section*{Appendix: Use of AI}
+\label{sec:appendix}
+Figures~\ref{fig:workflow} and~\ref{fig:mpa} in this essay were generated using AI coding assistance. The AI tool
+(Claude Code, Anthropic) wrote the Python code (matplotlib) that draws both
+figures. All values shown in the coverage chart come from the sources cited in
+this essay, and the author reviewed both figures for accuracy.
 \end{document}
